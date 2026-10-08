@@ -365,6 +365,7 @@ Use Shell when the task is simple and Linux-focused.
 
 Use Python when the task needs more logic, data processing, APIs, error handling, or reusable automation.
 
+---
 
 <p align="center">
   <a href="../README.md"><img src="https://img.shields.io/badge/⬅_Back-blue?style=for-the-badge" alt="Back"></a>
