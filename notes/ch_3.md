@@ -184,22 +184,6 @@ deactivate
 
 ---
 
-## 6. Quick Summary
-
-| Concept | Meaning |
-|---|---|
-| Function | A reusable block of code |
-| Module | A Python file containing code |
-| Package | A directory that groups related modules |
-| `import` | Loads a module for use |
-| `pip` | Installs Python packages |
-| `venv` | Creates a virtual environment |
-
-**Remember:** Functions organize tasks, modules organize code into files, packages organize modules, and virtual environments keep project dependencies separate.
-
-
----
-
 <p align="center">
   <a href="./ch_2.md"><img src="https://img.shields.io/badge/⬅_Back-blue?style=for-the-badge" alt="Back"></a>
   <a href="./ch_4.md"><img src="https://img.shields.io/badge/Forward_➡-green?style=for-the-badge" alt="Forward"></a>
