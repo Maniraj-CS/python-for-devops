@@ -62,7 +62,7 @@ Assignment operators assign values to variables or update their existing values.
 | `/=` | `x /= 5` | `x = x / 5` |
 | `//=` | `x //= 5` | `x = x // 5` |
 | `%=` | `x %= 5` | `x = x % 5` |
-| `**=` | `x **= 2` | `x = x ** 2` |
+| `**=` | `x **= 2` | `x = x ** 2` means \(x^{2}\) |
 
 ### Example
 
@@ -77,6 +77,11 @@ print(x)  # 30
 
 x -= 10
 print(x)  # 20
+
+y = 10
+
+y **= 2
+print(y) # 100
 ```
 
 ---
