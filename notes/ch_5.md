@@ -62,7 +62,7 @@ Assignment operators assign values to variables or update their existing values.
 | `/=` | `x /= 5` | `x = x / 5` |
 | `//=` | `x //= 5` | `x = x // 5` |
 | `%=` | `x %= 5` | `x = x % 5` |
-| `**=` | `x **= 2` | `x = x ** 2` i.e x<sup>2</sup> |
+| `**=` | `x **= 2` | `x = x ** 2` i.e `x<sup>2</sup>` |
 
 ### Example
 
