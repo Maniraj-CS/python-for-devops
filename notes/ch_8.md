@@ -31,34 +31,16 @@ print(servers)
 List indexing starts from `0`.
 
 ```python
-my_list = [10, 20, 30, 40]
-
-print(my_list[0])   # Output: 10
-print(my_list[2])   # Output: 30
-print(my_list[-1])  # Output: 40 (last element)
-```
-
-**DevOps Example:**
-
-```python
 servers = ["web-01", "web-02", "db-01"]
 
 print(servers[0])   # Output: web-01
 print(servers[2])   # Output: db-01
-print(servers[-1])  # Output: db-01
+print(servers[-1])  # Output: db-01 (last element)
 ```
 
 ### Finding List Length
 
 Use `len()` to count the number of elements.
-
-```python
-my_list = [10, 20, 30, 40]
-
-print(len(my_list))  # Output: 4
-```
-
-**DevOps Example:**
 
 ```python
 servers = ["web-01", "web-02", "db-01"]
@@ -73,15 +55,6 @@ This can help count the number of servers in a deployment list.
 Use `append()` to add an element at the end.
 
 ```python
-my_list = [1, 2, 3]
-
-my_list.append(4)
-print(my_list)  # Output: [1, 2, 3, 4]
-```
-
-**DevOps Example:**
-
-```python
 servers = ["web-01", "web-02"]
 
 servers.append("web-03")
@@ -93,15 +66,6 @@ print(servers)
 ### Removing Elements
 
 Use `remove()` to remove the first matching value.
-
-```python
-my_list = ["apple", "banana", "mango"]
-
-my_list.remove("banana")
-print(my_list)  # Output: ['apple', 'mango']
-```
-
-**DevOps Example:**
 
 ```python
 servers = ["web-01", "web-02", "db-01"]
@@ -139,17 +103,6 @@ This extracts the first three servers from the list.
 ### Combining Lists
 
 Use `+` to combine two lists into a new list.
-
-```python
-list1 = [1, 2, 3]
-list2 = [4, 5]
-
-result = list1 + list2
-
-print(result)  # Output: [1, 2, 3, 4, 5]
-```
-
-**DevOps Example:**
 
 ```python
 development_servers = ["dev-01", "dev-02"]
@@ -190,15 +143,6 @@ print(servers)
 ### Checking for an Element
 
 Use `in` to check whether an element exists in a list.
-
-```python
-fruits = ["apple", "banana", "mango"]
-
-print("banana" in fruits)  # Output: True
-print("grape" in fruits)   # Output: False
-```
-
-**DevOps Example:**
 
 ```python
 servers = ["web-01", "web-02", "db-01"]
@@ -242,16 +186,6 @@ print(server_config)
 Tuple indexing starts from `0`, just like lists.
 
 ```python
-my_tuple = (10, 20, 30, 40)
-
-print(my_tuple[0])   # Output: 10
-print(my_tuple[1])   # Output: 20
-print(my_tuple[-1])  # Output: 40
-```
-
-**DevOps Example:**
-
-```python
 server_config = ("web-01", "192.168.1.10", 80)
 
 print(server_config[0])  # Output: web-01
@@ -262,14 +196,6 @@ print(server_config[2])  # Output: 80
 ### Finding Tuple Length
 
 Use `len()` to count the elements.
-
-```python
-my_tuple = (10, 20, 30, 40)
-
-print(len(my_tuple))  # Output: 4
-```
-
-**DevOps Example:**
 
 ```python
 server_config = ("web-01", "192.168.1.10", 80)
@@ -284,20 +210,9 @@ The tuple contains three elements: a server name, an IP address, and a port.
 **Packing** means storing multiple values in a tuple. **Unpacking** means assigning tuple elements to separate variables.
 
 ```python
-coordinates = (3, 4)  # Packing
+server_config = ("web-01", "192.168.1.10", 80) # Packing
 
-x, y = coordinates    # Unpacking
-
-print(x)  # Output: 3
-print(y)  # Output: 4
-```
-
-**DevOps Example:**
-
-```python
-server_config = ("web-01", "192.168.1.10", 80)
-
-hostname, ip_address, port = server_config
+hostname, ip_address, port = server_config    # Unpacking
 
 print(hostname)     # Output: web-01
 print(ip_address)   # Output: 192.168.1.10
@@ -309,17 +224,6 @@ The number of variables must match the number of tuple elements when unpacking.
 ### Combining Tuples
 
 Use `+` to create a new tuple by combining existing tuples.
-
-```python
-tuple1 = (1, 2, 3)
-tuple2 = (4, 5)
-
-result = tuple1 + tuple2
-
-print(result)  # Output: (1, 2, 3, 4, 5)
-```
-
-**DevOps Example:**
 
 ```python
 server_details = ("web-01", "192.168.1.10")
@@ -336,15 +240,6 @@ print(full_config)
 Use `in` to check whether a value exists in a tuple.
 
 ```python
-my_tuple = ("apple", "banana", "mango")
-
-print("apple" in my_tuple)  # Output: True
-print("grape" in my_tuple)  # Output: False
-```
-
-**DevOps Example:**
-
-```python
 allowed_ports = (22, 80, 443)
 
 print(22 in allowed_ports)   # Output: True
@@ -356,18 +251,6 @@ This checks membership in a Python tuple. It does not configure or enforce firew
 ### Returning Multiple Values from a Function
 
 Python functions can return multiple values, which are commonly packed into a tuple.
-
-```python
-def get_coordinates():
-    return 3, 4
-
-x, y = get_coordinates()
-
-print(x)  # Output: 3
-print(y)  # Output: 4
-```
-
-**DevOps Example:**
 
 ```python
 def get_server_info():
