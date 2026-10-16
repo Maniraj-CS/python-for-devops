@@ -1,20 +1,29 @@
-# Python Lists and Tuples for DevOps
+# Python Lists and Tuples
 
 ## 1. What is a List?
 
-A list stores multiple items in a single variable. Lists are **ordered and mutable**, which means you can add, remove, or update items.
+A list is a data structure used to store multiple items in a single variable.
 
-In DevOps, lists are useful for storing server names, IP addresses, Docker containers, and deployment tasks.
+Lists are **ordered and mutable**, which means you can access items by their position and change the list after creating it. A list can contain different data types.
 
 ### Creating a List
+
+```python
+my_list = [1, 2, 3, "apple", "banana"]
+
+print(my_list)
+# Output: [1, 2, 3, 'apple', 'banana']
+```
+
+**DevOps Example:**
+
+Store the names of servers where an application needs to be deployed.
 
 ```python
 servers = ["web-01", "web-02", "db-01"]
 
 print(servers)
-
-# Output:
-# ['web-01', 'web-02', 'db-01']
+# Output: ['web-01', 'web-02', 'db-01']
 ```
 
 ### Accessing List Elements
@@ -22,17 +31,34 @@ print(servers)
 List indexing starts from `0`.
 
 ```python
-servers = ["web-01", "web-02", "db-01"]
+my_list = [10, 20, 30, 40]
 
-print(servers[0])   # web-01
-print(servers[-1])  # db-01
+print(my_list[0])   # Output: 10
+print(my_list[2])   # Output: 30
+print(my_list[-1])  # Output: 40 (last element)
 ```
 
-**DevOps use case:** Access a specific server from a list.
+**DevOps Example:**
 
-### Finding the Number of Servers
+```python
+servers = ["web-01", "web-02", "db-01"]
 
-Use `len()` to count the items.
+print(servers[0])   # Output: web-01
+print(servers[2])   # Output: db-01
+print(servers[-1])  # Output: db-01
+```
+
+### Finding List Length
+
+Use `len()` to count the number of elements.
+
+```python
+my_list = [10, 20, 30, 40]
+
+print(len(my_list))  # Output: 4
+```
+
+**DevOps Example:**
 
 ```python
 servers = ["web-01", "web-02", "db-01"]
@@ -40,11 +66,20 @@ servers = ["web-01", "web-02", "db-01"]
 print(len(servers))  # Output: 3
 ```
 
-**DevOps use case:** Count the servers in an inventory list.
+This can help count the number of servers in a deployment list.
 
-### Adding a Server
+### Adding Elements
 
-Use `append()` to add a new item.
+Use `append()` to add an element at the end.
+
+```python
+my_list = [1, 2, 3]
+
+my_list.append(4)
+print(my_list)  # Output: [1, 2, 3, 4]
+```
+
+**DevOps Example:**
 
 ```python
 servers = ["web-01", "web-02"]
@@ -55,197 +90,362 @@ print(servers)
 # Output: ['web-01', 'web-02', 'web-03']
 ```
 
-**DevOps use case:** Add a server to a list before running an automation task.
+### Removing Elements
 
-### Removing a Server
-
-Use `remove()` to remove an item by value.
+Use `remove()` to remove the first matching value.
 
 ```python
-servers = ["web-01", "web-02", "web-03"]
+my_list = ["apple", "banana", "mango"]
+
+my_list.remove("banana")
+print(my_list)  # Output: ['apple', 'mango']
+```
+
+**DevOps Example:**
+
+```python
+servers = ["web-01", "web-02", "db-01"]
 
 servers.remove("web-02")
 
 print(servers)
-# Output: ['web-01', 'web-03']
+# Output: ['web-01', 'db-01']
 ```
 
-**DevOps use case:** Update an inventory list when a server is no longer part of the target group.
+`remove()` raises a `ValueError` if the specified value does not exist in the list.
 
-### Checking a Server
+### List Slicing
 
-Use `in` to check whether a server exists in the list.
+Slicing extracts part of a list using `list[start:stop]`. The stop index is not included.
+
+```python
+my_list = [10, 20, 30, 40, 50]
+
+print(my_list[1:4])
+# Output: [20, 30, 40]
+```
+
+**DevOps Example:**
+
+```python
+servers = ["web-01", "web-02", "web-03", "db-01"]
+
+print(servers[0:3])
+# Output: ['web-01', 'web-02', 'web-03']
+```
+
+This extracts the first three servers from the list.
+
+### Combining Lists
+
+Use `+` to combine two lists into a new list.
+
+```python
+list1 = [1, 2, 3]
+list2 = [4, 5]
+
+result = list1 + list2
+
+print(result)  # Output: [1, 2, 3, 4, 5]
+```
+
+**DevOps Example:**
+
+```python
+development_servers = ["dev-01", "dev-02"]
+production_servers = ["prod-01", "prod-02"]
+
+all_servers = development_servers + production_servers
+
+print(all_servers)
+# Output: ['dev-01', 'dev-02', 'prod-01', 'prod-02']
+```
+
+### Sorting a List
+
+Use `sort()` to sort list elements.
+
+```python
+numbers = [4, 1, 3, 2]
+
+numbers.sort()
+print(numbers)  # Output: [1, 2, 3, 4]
+
+numbers.sort(reverse=True)
+print(numbers)  # Output: [4, 3, 2, 1]
+```
+
+**DevOps Example:**
+
+```python
+servers = ["web-03", "web-01", "web-02"]
+
+servers.sort()
+print(servers)
+# Output: ['web-01', 'web-02', 'web-03']
+```
+
+**Note:** `sort()` changes the original list. By default, strings are sorted alphabetically.
+
+### Checking for an Element
+
+Use `in` to check whether an element exists in a list.
+
+```python
+fruits = ["apple", "banana", "mango"]
+
+print("banana" in fruits)  # Output: True
+print("grape" in fruits)   # Output: False
+```
+
+**DevOps Example:**
 
 ```python
 servers = ["web-01", "web-02", "db-01"]
 
-if "web-01" in servers:
-    print("Server found")
-else:
-    print("Server not found")
-
-# Output: Server found
+print("web-01" in servers)  # Output: True
+print("web-05" in servers)  # Output: False
 ```
 
-**DevOps use case:** Check whether a server is included in a deployment target list.
-
-### Looping Through Servers
-
-A `for` loop lets you process each item.
-
-```python
-servers = ["web-01", "web-02", "db-01"]
-
-for server in servers:
-    print(f"Checking server: {server}")
-```
-
-Output:
-
-```text
-Checking server: web-01
-Checking server: web-02
-Checking server: db-01
-```
-
-**DevOps use case:** Loop through servers to run health checks or automate routine tasks.
+This checks whether a server is present in the list. It does not check whether the server is actually running.
 
 ---
 
 ## 2. What is a Tuple?
 
-A tuple stores multiple items in a single variable. Tuples are **ordered and immutable**, meaning their elements cannot be replaced, added, or removed after creation.
+A tuple is a data structure used to store multiple items in a single variable.
 
-In DevOps, tuples are useful for grouping fixed configuration values, such as a server's hostname and port number.
+Tuples are **ordered and immutable**, which means their elements cannot be added, removed, or replaced after creation.
 
 ### Creating a Tuple
+
+```python
+my_tuple = (1, 2, "apple", "banana")
+
+print(my_tuple)
+# Output: (1, 2, 'apple', 'banana')
+```
+
+**DevOps Example:**
+
+Store a server's basic configuration.
 
 ```python
 server_config = ("web-01", "192.168.1.10", 80)
 
 print(server_config)
-```
-
-Output:
-
-```text
-('web-01', '192.168.1.10', 80)
+# Output: ('web-01', '192.168.1.10', 80)
 ```
 
 ### Accessing Tuple Elements
 
+Tuple indexing starts from `0`, just like lists.
+
+```python
+my_tuple = (10, 20, 30, 40)
+
+print(my_tuple[0])   # Output: 10
+print(my_tuple[1])   # Output: 20
+print(my_tuple[-1])  # Output: 40
+```
+
+**DevOps Example:**
+
 ```python
 server_config = ("web-01", "192.168.1.10", 80)
 
-print(server_config[0])  # web-01
-print(server_config[1])  # 192.168.1.10
-print(server_config[2])  # 80
+print(server_config[0])  # Output: web-01
+print(server_config[1])  # Output: 192.168.1.10
+print(server_config[2])  # Output: 80
 ```
 
-**DevOps use case:** Access a server's hostname, IP address, or port.
+### Finding Tuple Length
 
-### Tuple Unpacking
+Use `len()` to count the elements.
 
-Unpacking assigns tuple elements to separate variables.
+```python
+my_tuple = (10, 20, 30, 40)
+
+print(len(my_tuple))  # Output: 4
+```
+
+**DevOps Example:**
+
+```python
+server_config = ("web-01", "192.168.1.10", 80)
+
+print(len(server_config))  # Output: 3
+```
+
+The tuple contains three elements: a server name, an IP address, and a port.
+
+### Tuple Packing and Unpacking
+
+**Packing** means storing multiple values in a tuple. **Unpacking** means assigning tuple elements to separate variables.
+
+```python
+coordinates = (3, 4)  # Packing
+
+x, y = coordinates    # Unpacking
+
+print(x)  # Output: 3
+print(y)  # Output: 4
+```
+
+**DevOps Example:**
 
 ```python
 server_config = ("web-01", "192.168.1.10", 80)
 
 hostname, ip_address, port = server_config
 
-print(hostname)    # web-01
-print(ip_address)  # 192.168.1.10
-print(port)        # 80
+print(hostname)     # Output: web-01
+print(ip_address)   # Output: 192.168.1.10
+print(port)         # Output: 80
 ```
 
-**DevOps use case:** Read fixed configuration values into separate variables.
+The number of variables must match the number of tuple elements when unpacking.
 
-### Returning Multiple Values
+### Combining Tuples
 
-A function can return multiple values, which Python packs into a tuple.
+Use `+` to create a new tuple by combining existing tuples.
 
 ```python
-def get_server_info():
-    return "web-01", 80
+tuple1 = (1, 2, 3)
+tuple2 = (4, 5)
 
-hostname, port = get_server_info()
+result = tuple1 + tuple2
 
-print(hostname)  # web-01
-print(port)      # 80
+print(result)  # Output: (1, 2, 3, 4, 5)
 ```
 
-**DevOps use case:** Return a server name and port from a helper function.
+**DevOps Example:**
 
-### Checking a Tuple
+```python
+server_details = ("web-01", "192.168.1.10")
+server_settings = (80, "running")
+
+full_config = server_details + server_settings
+
+print(full_config)
+# Output: ('web-01', '192.168.1.10', 80, 'running')
+```
+
+### Checking for an Element
+
+Use `in` to check whether a value exists in a tuple.
+
+```python
+my_tuple = ("apple", "banana", "mango")
+
+print("apple" in my_tuple)  # Output: True
+print("grape" in my_tuple)  # Output: False
+```
+
+**DevOps Example:**
 
 ```python
 allowed_ports = (22, 80, 443)
 
-if 443 in allowed_ports:
-    print("HTTPS port is allowed")
-
-# Output: HTTPS port is allowed
+print(22 in allowed_ports)   # Output: True
+print(3306 in allowed_ports) # Output: False
 ```
 
-**DevOps use case:** Check whether a port belongs to a predefined set of allowed ports. This example only checks the tuple; it does not configure a firewall.
+This checks membership in a Python tuple. It does not configure or enforce firewall rules.
+
+### Returning Multiple Values from a Function
+
+Python functions can return multiple values, which are commonly packed into a tuple.
+
+```python
+def get_coordinates():
+    return 3, 4
+
+x, y = get_coordinates()
+
+print(x)  # Output: 3
+print(y)  # Output: 4
+```
+
+**DevOps Example:**
+
+```python
+def get_server_info():
+    return "web-01", "running"
+
+hostname, status = get_server_info()
+
+print(hostname)  # Output: web-01
+print(status)    # Output: running
+```
+
+A function can return multiple pieces of information, such as a server name and its reported status.
 
 ---
 
-## 3. Lists vs Tuples in DevOps
+## 3. Lists vs Tuples
+
+Both lists and tuples store multiple items in an ordered collection, but they have important differences.
 
 | Feature | List | Tuple |
 |---|---|---|
-| Syntax | `["web-01", "web-02"]` | `("web-01", 80)` |
+| Syntax | `[1, 2, 3]` | `(1, 2, 3)` |
+| Ordered | Yes | Yes |
 | Mutable | Yes | No |
 | Add or remove items | Yes | No |
 | Access by index | Yes | Yes |
-| Typical use | Server inventory | Fixed configuration values |
-| Example | Deployment targets | Hostname and port |
+| Supports slicing | Yes | Yes |
+| Common use | Data that changes | Data that should remain fixed |
+| DevOps example | Deployment target list | Fixed server configuration |
 
-### Example: List for Deployment Targets
+### Mutability Example
 
-```python
-deployment_targets = ["web-01", "web-02"]
-
-deployment_targets.append("web-03")
-
-for server in deployment_targets:
-    print(f"Deploying application to {server}")
-```
-
-### Example: Tuple for Server Configuration
+**List — elements can be changed:**
 
 ```python
-server_config = ("web-01", 80)
+numbers = [1, 2, 3]
+numbers[0] = 100
 
-hostname, port = server_config
-
-print(f"Server: {hostname}, Port: {port}")
+print(numbers)  # Output: [100, 2, 3]
 ```
 
-**Remember:** Use lists when your collection needs to change. Use tuples when you want to keep an ordered group of values unchanged.
+**Tuple — elements cannot be changed:**
 
-Note that a tuple containing mutable objects can still have those objects modified. Tuples are not a security mechanism for protecting configuration data.
+```python
+numbers = (1, 2, 3)
+
+# numbers[0] = 100  # Raises TypeError
+```
+
+### When Should You Use Them?
+
+- **List:** Use it when you need to add, remove, or update items, such as deployment targets, server names, or tasks.
+- **Tuple:** Use it when you want an ordered collection that should not be changed, such as a fixed set of configuration values or coordinates `(x, y)`.
+
+**Important:** Tuples are not always automatically faster or smaller in every situation. Choose a list or tuple mainly based on whether the collection needs to change.
 
 ---
 
 ## 4. Quick Summary
 
-| Method / Function | Purpose |
-|---|---|
-| `len(servers)` | Count servers |
-| `servers[0]` | Access the first server |
-| `servers.append()` | Add a server |
-| `servers.remove()` | Remove a server |
-| `"web-01" in servers` | Check whether a server exists |
-| `for server in servers` | Process each server |
-| `hostname, port = config` | Unpack tuple values |
-
-**DevOps practice idea:** Create a Python script that stores server names in a list, checks whether a target server exists, and prints a deployment message for each server.
+- Lists use square brackets `[]` and are mutable.
+- Tuples use parentheses `()` and are immutable.
+- Indexing starts from `0` in both.
+- `len()` returns the number of elements.
+- `in` checks whether an element exists.
+- Slicing extracts a part of a list or tuple.
+- `append()`, `remove()`, and `sort()` are common list methods.
+- Tuple unpacking assigns elements to separate variables.
+- Lists are useful for collections that change, such as deployment targets.
+- Tuples are useful for grouped values that should remain fixed, such as server configuration.
 
 ---
 
 <p align="center">
-  <a href="./ch_7.md"><img src="https://img.shields.io/badge/⬅_Back-blue?style=for-the-badge" alt="Back"></a>
-  <a href="./ch_9.md"><img src="https://img.shields.io/badge/Forward_➡-green?style=for-the-badge" alt="Forward"></a>
+  <a href="./ch_7.md">
+    <img src="https://img.shields.io/badge/⬅_Back-blue?style=for-the-badge" alt="Back" />
+  </a>
+  <a href="./ch_9.md">
+    <img src="https://img.shields.io/badge/Forward_➡-green?style=for-the-badge" alt="Forward" />
+  </a>
 </p>
