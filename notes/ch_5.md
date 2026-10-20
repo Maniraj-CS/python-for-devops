@@ -276,6 +276,10 @@ print(result)  # 20
   <a href="./ch_4.md">
     <img src="https://img.shields.io/badge/⬅_Back-blue?style=for-the-badge" alt="Back" />
   </a>
+  </a>
+  <a href="../README.md">
+    <img src="https://img.shields.io/badge/🏠_Main_README-purple?style=for-the-badge" alt="Main README"/>
+  </a>
   <a href="./ch_6.md">
     <img src="https://img.shields.io/badge/Forward_➡-green?style=for-the-badge" alt="Forward" />
   </a>

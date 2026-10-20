@@ -10,13 +10,6 @@
   </p>
 
   <p>
-    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
-    <img src="https://img.shields.io/badge/DevOps-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="DevOps"/>
-    <img src="https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white" alt="AWS"/>
-    <img src="https://img.shields.io/badge/Hands--On-Learning-16A34A?style=for-the-badge" alt="Hands-on learning"/>
-  </p>
-
-  <p>
     <a href="./notes/ch_1.md">
       <img src="https://img.shields.io/badge/Start_Learning-0891B2?style=for-the-badge&logo=python&logoColor=white" alt="Start learning"/>
     </a>
